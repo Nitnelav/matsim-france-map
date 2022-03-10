@@ -14,33 +14,39 @@
 
   <style>
     body {
-      text-align: center;
-    }
-    h1 {
-      font-family: Arial, Helvetica, sans-serif;
-      margin-bottom: 20px;
+      margin: 0;
+      padding: 0;
     }
     #map {
-      margin: 0 auto;
-      height: 520px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    #title {
+      position: relative;
+      margin-top: 10px;
+      margin-left: 50px;
+      float: left;
+      background: white;
+      border: 2px solid black;
+      padding: 10px 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 3vw;
+      font-weight: bold;
+      z-index: 1000;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="row">
-      <h1 class="col">Les projets <img src="images/matsim.png" style="height: 30px;"/> en France</h1>
-    </div>
-    <div class="row">
-      <div id="map" class="col">
-      </div>
-    </div>
-  </div>
+  <h1 id="title">Les projets <img src="images/matsim.png" style="height: 3.5vw;"/> en France</h1>
+  <div id="map" class="col">
 
   <script>
     var map = L.map('map', {
-      center: [47, 3.5],
+      center: [47, 1.0],
       zoom: 6,
       tap: false
     });

@@ -30,24 +30,34 @@
       margin-left: 50px;
       float: left;
       background: white;
-      border: 2px solid black;
+      border: 1px solid rgb(95, 95, 95);
       padding: 10px 10px;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 3vw;
+      font-size: 2vw;
       font-weight: bold;
       z-index: 1000;
+    }
+    #title > a > img {
+      height: 2.5vw;
+    }
+    .popup {
+      width: 400px;
+    }
+    .logo {
+      max-height: 50px;
+      width: auto;
     }
   </style>
 </head>
 <body>
 
-  <h1 id="title">Les projets <img src="images/matsim.png" style="height: 3.5vw;"/> en France</h1>
+  <h1 id="title">Les projets <a href="https://www.matsim.org"><img src="images/matsim.png"/></a> et <a href="eqasim.org/">Eqasim</a> en France</h1>
   <div id="map" class="col">
 
   <script>
     var map = L.map('map', {
       center: [47, 1.0],
-      zoom: 6,
+      zoom: 5,
       tap: false
     });
 
@@ -68,7 +78,9 @@
 
     L.geoJson(matsim_projects, {
       onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.html);
+        layer.bindPopup(feature.properties.html, {
+            maxWidth : 500
+        });
       }
     }).addTo(map);
 
